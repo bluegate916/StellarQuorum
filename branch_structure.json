@@ -1,0 +1,18 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "fix/issue-304-ci-add-a-prometheus-metrics-exporter-for-rpc",
+    "main",
+    "origin"
+  ],
+  "parent": {
+    "fix/issue-304-ci-add-a-prometheus-metrics-exporter-for-rpc": "main",
+    "main": null,
+    "origin": "main"
+  },
+  "order": [
+    "main",
+    "fix/issue-304-ci-add-a-prometheus-metrics-exporter-for-rpc",
+    "origin"
+  ]
+}
