@@ -54,7 +54,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && node scripts/finalize-dist.mjs",
+    "build": "node init && tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && node scripts/finalize-dist.mjs",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "test:e2e": "NODE_OPTIONS=--experimental-vm-modules jest test/e2e",
     "test:smoke": "node scripts/smoke.mjs",
