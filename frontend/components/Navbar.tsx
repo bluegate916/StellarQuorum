@@ -3,15 +3,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Scale } from "lucide-react";
 import { useWallet } from "./WalletProvider";
+import AccountSwitcher from "./AccountSwitcher";
 import { t } from "@/lib/i18n";
 
-/** Addresses are long and uniform; the tail is what makes one recognisable. */
-function shorten(address: string): string {
-  return address.length <= 10 ? address : `…${address.slice(-6)}`;
-}
-
 export default function Navbar() {
-  const { address, pending, error, connect, disconnect } = useWallet();
+  const { address, pending, error, connect } = useWallet();
   const pathname = usePathname();
 
   return (
@@ -26,13 +22,7 @@ export default function Navbar() {
           <Link href="/create" className="hover:text-slate-200 hover:underline underline-offset-4 transition-colors">{t("nav.create")}</Link>
           <Link href="/delegation" className="hover:text-slate-200 hover:underline underline-offset-4 transition-colors">Delegation</Link>
           {address ? (
-            <button
-              onClick={disconnect}
-              className="px-4 py-1.5 border border-[#1e2d40] text-slate-300 hover:bg-[#162032] rounded-md transition-colors font-mono"
-              aria-label={t("nav.disconnect", { address })}
-            >
-              {shorten(address)}
-            </button>
+            <AccountSwitcher />
           ) : (
             <button
               onClick={connect}
